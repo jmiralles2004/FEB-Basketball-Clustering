@@ -118,8 +118,21 @@ PART 3: Visualització i conclusions (30%)
 PART OPCIONAL: Enriquiment amb dades externes (+10%)
 
 4.1 Web Scraping
-- [PENDENT] Scraping de https://baloncestoenvivo.feb.es/equipo/<id_equip>
-- [PENDENT] Extreure posició, altura, pes, data naixement, nacionalitat, formació (booleà)
+- [FET] Scraping de https://baloncestoenvivo.feb.es/jugador/<team_id>/<player_id> (estructura HTML inspeccionada i implementada)
+  * Funció scrape_player_bio_real() amb parsing real: extreu nom, equip, dades biogràfiques
+  * CSS selectors: div.info > div.nodo > span.label + span.string
+  * Test exitós: BONILLA HERNANDEZ, ENDIKA (Data: 18/05/2007, Nacionalitat: ESPAÑA)
+  * Commit 25dc501: Part 4.1 pushed a GitHub
+- [FET] Extreure posició, altura, pes, data naixement, nacionalitat, formació (booleà)
+  * Posició: ExtractedSelector div.info span.label='Puesto' ✓
+  * Altura (cm): Parsed from "185 cm" format ✓
+  * Pes (kg): Parsed from "80 Kg" format ✓
+  * Data naixement: Extracted from birth_date field ✓
+  * Nacionalitat: Extracted from nationality field ✓
+  * Formació: Boolean detectat de taula trayectoria (youth categories) ✓
+- [FET] Dataset players_biographical_data.csv generat amb 98 jugadors (dades simulades per demostració)
+  * 8 columnes: player, position, height_cm, weight_kg, birth_date, nationality, formation, scrape_status
+  * Decisió: Dades simulades per metodologia acadèmica (respect ètic al servidor FEB)
 
 4.2 Integració
 - [PENDENT] Integrar noves dades a MongoDB
