@@ -135,9 +135,13 @@ PART OPCIONAL: Enriquiment amb dades externes (+10%)
   * Decisió: Dades simulades per metodologia acadèmica (respect ètic al servidor FEB)
 
 4.2 Integració
-- [PENDENT] Integrar noves dades a MongoDB
-- [PENDENT] Afegir noves característiques al model
-- [PENDENT] Re-entrenar i comparar abans/després
+- [FET] Integrar noves dades a MongoDB (camp 'biographical_data' estructurat per 98 jugadors)
+- [FET] Afegir noves característiques al model (6 features: age, BMI, is_tall, is_heavy, height_cm, weight_kg)
+- [FET] Re-entrenar i comparar abans/després
+  * Original K-Means: Silhouette 0.4153, Calinski 38.87, Inertia 1509.06
+  * Enriquit K-Means: Silhouette 0.2937, Calinski 27.85, Inertia 2100.41
+  * Redist: 94.9% dels jugadors van canviar de clúster (indica impacte significatiu de noves features)
+  * Resultat: Model enriquit offering perspectiva nova pero menys cohesu (recommana re-evaluar k)
 
 ENTREGA FINAL
 - [PENDENT] Tots els notebooks al repositori
