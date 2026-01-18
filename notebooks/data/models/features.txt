@@ -1,0 +1,37 @@
+# Features numèriques estandarditzades per clustering
+# Total: 33
+# Data: 2026-01-15 20:09:50
+
+ 1. total_min
+ 2. avg_min
+ 3. pts
+ 4. fgm
+ 5. fga
+ 6. 3pm
+ 7. 3pa
+ 8. ftm
+ 9. fta
+10. ast
+11. tov
+12. stl
+13. blk
+14. pf
+15. n_outliers
+16. possessions
+17. possessions_per_match
+18. oer
+19. def_contribution
+20. def_per_match
+21. fg2a
+22. fg2m
+23. pct_2pa
+24. pct_3pa
+25. fg2_pct
+26. fg3_pct
+27. best_zone_pct
+28. OER
+29. fga_2
+30. fgm_2
+31. defensive_contribution
+32. total_defensive_actions
+33. best_zone_efficiency

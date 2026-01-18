@@ -1,0 +1,13 @@
+# Dades bàsiques i pila de ML
+pymongo
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+# Eines científiques i de quadern útils
+scipy
+notebook
+ipykernel
+python-dotenv
