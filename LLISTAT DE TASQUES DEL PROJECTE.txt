@@ -88,8 +88,9 @@ PART 2: Model de Machine Learning (40%)
 - [FET] Identificar jugadors representatius (Top 3 per clúster + outliers destacats; clustering_representative_players.csv)
 
 2.6 Documentació del model
-- [PENDENT] Fer commit i push del notebook del model
-- [PENDENT] Guardar la taula resum
+- [FET] Fer commit del notebook del model (commit c4cfce8: 18 fitxers, 3313 línies)
+- [FET] Guardar la taula resum (model_summary.txt creat amb resum complet del model)
+- [NOTA] Push pendent: cal configurar repositori remot amb 'git remote add origin <URL>'
 
 PART 3: Visualització i conclusions (30%)
 
