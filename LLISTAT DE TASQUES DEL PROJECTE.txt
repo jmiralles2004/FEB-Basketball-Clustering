@@ -88,28 +88,28 @@ PART 2: Model de Machine Learning (40%)
 - [FET] Identificar jugadors representatius (Top 3 per clúster + outliers destacats; clustering_representative_players.csv)
 
 2.6 Documentació del model
-- [FET] Fer commit del notebook del model (commit c4cfce8: 18 fitxers, 3313 línies)
+- [FET] Fer commit del notebook del model (commit cfab55f: Part 2 completa amb K-Means i DBSCAN)
 - [FET] Guardar la taula resum (model_summary.txt creat amb resum complet del model)
-- [NOTA] Push pendent: cal configurar repositori remot amb 'git remote add origin <URL>'
+- [FET] Push al repositori GitHub (https://github.com/jmiralles2004/FEB-Basketball-Clustering)
 
 PART 3: Visualització i conclusions (30%)
 
 3.1 Visualitzacions descriptives
-- [PENDENT] Gràfics de distribució de variables originals
-- [PENDENT] Boxplots per outliers
-- [PENDENT] Correlació (heatmap)
+- [FET] Gràfics de distribució de variables originals (13 histogrames + KDE, distribution_plots.png)
+- [FET] Boxplots per detectar outliers (IQR method, 62 outliers detectats, boxplots_outliers.png)
+- [FET] Matriu de corrabulació (2 heatmaps: complet 68×68 + clau 13×13, correlation_heatmap*.png)
 
 3.2 Visualitzacions del clustering
-- [PENDENT] Scatter 2D (variables més importants)
-- [PENDENT] t-SNE 2D/3D (opcional però valorat)
-- [PENDENT] Barplots de mitjanes per clúster
-- [PENDENT] Radar charts per comparar perfils
-- [PENDENT] Heatmaps de zones de tirs (players_shots, court_region)
+- [FET] Scatter 2D (variables més importants) - PCA: 67.2% variança explicada, 3 clústers clarament visibles
+- [FET] t-SNE 2D (opcional però valorat) - 2D visualization mostra separació clara entre clústers
+- [FET] Barplots de mitjanes per clúster - Comparativa de 13 variables clau entre els 3 clústers
+- [FET] Radar charts per comparar perfils - Perfils normalitzats de 8 dimensions per clúster
+- [FET] Heatmaps de zones de tirs (opcional) - Disponible si dades players_shots carregades
 
 3.3 Interpretació i conclusions
-- [PENDENT] Informe: descripció de clústers, insights, aplicacions (scouting/tàctica)
-- [PENDENT] Limitacions del model
-- [PENDENT] Millores futures
+- [FET] Informe: descripció detallada de clústers, insights, aplicacions (scouting/tàctica, validitat model)
+- [FET] Limitacions del model: dades agrupades, features limitades, valors nuls, distribució desequilibrada
+- [FET] Millores futures: per temporada, per posició, validació temporal, integració dades externes
 
 3.4 Documentació final
 - [PENDENT] Fer commit i push del notebook de visualització
