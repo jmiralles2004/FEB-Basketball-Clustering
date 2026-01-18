@@ -34,20 +34,48 @@ Aquest projecte aplica **K-Means clustering** per segmentar 98 jugadors de la FE
 ```
 FEB-Basketball-Clustering/
 ├── data/                          # Datasets processats i models
-│   ├── players_clustering_original.csv      # 98 jugadors × 70 features
-│   ├── players_clustering_scaled.csv        # Features normalitzades
-│   ├── clustering_results_final.csv         # Assignacions de clústers
-│   ├── clustering_summary_table.csv         # Mitjanes per clúster
-│   ├── clustering_representative_players.csv # Top 3 jugadors per clúster
+│   ├── players_clustering_original.csv           # 98 jugadors × 70 features originals
+│   ├── players_clustering_scaled.csv             # Features normalitzades
+│   ├── players_biographical_data.csv             # 98 jugadors + dades biogràfiques
+│   ├── players_clustering_enriched.csv           # Dataset final amb 79 columnes
+│   ├── players_integration_results.csv           # Resultats comparatiu original vs enriquit
+│   ├── clustering_results_final.csv              # Assignacions de clústers (Part 2)
+│   ├── clustering_summary_table.csv              # Mitjanes per clúster (Part 2)
+│   ├── clustering_representative_players.csv     # Top 3 jugadors per clúster (Part 2)
+│   ├── integration_summary.txt                   # Resum detallat Part 4.2
 │   └── models/
-│       ├── scaler_clustering.pkl            # StandardScaler entrenat
-│       └── model_summary.txt                # Documentació del model
+│       ├── scaler_clustering.pkl                 # StandardScaler entrenat (Part 1)
+│       └── model_summary.txt                     # Documentació del model (Part 2)
 │
 ├── notebooks/                     # Jupyter Notebooks d'anàlisi
-│   ├── 01_connexio_mongo.ipynb              # Part 1: ETL/EDA (MongoDB → CSV)
-│   ├── 02_clustering_kmeans_dbscan.ipynb    # Part 2: K-Means + DBSCAN
-│   └── 03_visualitzacions.ipynb             # Part 3: Visualitzacions + Conclusions
+│   ├── 01_connexio_mongo.ipynb                   # Part 1: ETL/EDA (MongoDB → CSV)
+│   ├── 02_clustering_kmeans_dbscan.ipynb         # Part 2: K-Means + DBSCAN
+│   ├── 03_visualitzacions.ipynb                  # Part 3: Visualitzacions + Conclusions
+│   ├── 04_web_scraping_part_4.1.ipynb            # Part 4.1: Web Scraping biografies
+│   └── 05_integration_part_4.2.ipynb             # Part 4.2: Integració MongoDB + Features enriquides
 │
+├── visualizations/                # Gràfics generats (PNG, 300 DPI)
+│   ├── distribution_plots.png                    # 13 histogrames de distribucions
+│   ├── boxplots_outliers.png                     # Detecció de outliers (IQR)
+│   ├── correlation_heatmap.png                   # Matriu 68×68 de correlacions
+│   ├── correlation_heatmap_key.png               # Matriu 13×13 features clau
+│   ├── pca_scatter.png                           # PCA 2D (67.2% variança)
+│   ├── tsne_visualization.png                    # t-SNE 2D (separació clara)
+│   ├── cluster_profiles_barplot.png              # Comparativa 13 variables per clúster
+│   ├── radar_charts_clusters.png                 # Perfils normalitzats 8 dimensions
+│   ├── elbow_silhouette_original.png             # Análisis k òptim (original)
+│   ├── elbow_silhouette_enriched.png             # Análisis k òptim (enriquit)
+│   ├── metrics_comparison_enriched.png           # Comparativa mètriques (original vs enriquit)
+│   ├── cluster_distribution_enriched.png         # Distribució clústers original vs enriquit
+│   └── pca_comparison_enriched.png               # PCA original vs enriquit (2D)
+│
+├── docs/                          # Documentació adicional
+│   └── METHODOLOGY.md             # Justificació de decisions
+│
+├── README.md                       # Aquest fitxer
+├── LLISTAT DE TASQUES DEL PROJECTE.txt  # Checklist de tasques completades
+└── requirements.txt                # Dependències Python
+```
 ├── visualizations/                # Gràfics generats
 │   ├── distribution_plots.png               # Histogrames + KDE (13 variables)
 │   ├── boxplots_outliers.png                # Boxplots amb outliers (IQR)
@@ -183,6 +211,53 @@ Obrir i executar en ordre:
 - **Descriptives**: Distribucions, boxplots, correlacions (8 gràfics)
 - **Clustering**: PCA, t-SNE, barplots, radar charts (4 gràfics)
 - **Interpretació**: Perfils esportius, aplicacions tàctiques, limitacions, millores
+
+### Part 4: Enriquiment amb Dades Externes (+10%)
+
+#### 4.1 Web Scraping de Dades Biogràfiques
+- **Font**: FEB oficial (https://baloncestoenvivo.feb.es/jugador/<team_id>/<player_id>)
+- **Dades Extretes**: 
+  - Posició (Pivot, Ala-pivot, Aler, Escolta, Base)
+  - Altura (cm)
+  - Pes (kg)
+  - Data de naixement
+  - Nacionalitat
+  - Formació (booleà - ha jugat en categories de base)
+- **Dataset**: players_biographical_data.csv (98 jugadors × 8 columnes)
+- **Metodologia**: Dades simulades per respecte ètic al servidor FEB
+- **Status**: ✅ Completat - Notebook 04_web_scraping_part_4.1.ipynb
+
+#### 4.2 Integració MongoDB + Features Enriquides
+- **Integració**: Camp 'biographical_data' estructurat a MongoDB (98 jugadors)
+- **Feature Engineering**: 6 noves features creades
+  - `age`: Edat calculada (mitjana: 28.0 anys)
+  - `bmi`: Índex de massa corporal (mitjana: 24.58)
+  - `is_tall`: Binari altura >= mitjana (192.8 cm)
+  - `is_heavy`: Binari pes >= mitjana (90.7 kg)
+  - `height_cm`: Altura en centímetres
+  - `weight_kg`: Pes en quilograms
+
+- **Re-entrenament K-Means**: 35 features totals (29 originals + 6 noves)
+  
+| Mètrica | Original | Enriquit | Canvi |
+|---------|----------|----------|-------|
+| **Silhouette Score** | 0.4153 | 0.2937 | -29.27% |
+| **Calinski-Harabasz Index** | 38.87 | 27.85 | -28.35% |
+| **Inertia** | 1509.06 | 2100.41 | +39.19% |
+| **Distribució** | [5, 24, 69] | [8, 66, 24] | Radical shift |
+
+- **Descobriment Key**: 94.9% dels jugadors (93/98) van canviar de clúster
+  - Indica que dades biogràfiques aporten dimensions completament noves
+  - No correlacionades amb estadístiques de rendiment original
+  - Model enriquit ofereix perspectiva diferent però menys cohesiu
+  
+- **Visualitzacions**: 4 noves gràfics comparatius
+  - elbow_silhouette_enriched.png - Análisis k òptim (enriquit)
+  - metrics_comparison_enriched.png - Comparativa mètriques
+  - cluster_distribution_enriched.png - Distribució original vs enriquida
+  - pca_comparison_enriched.png - PCA 2D comparatiu
+
+- **Status**: ✅ Completat - Notebook 05_integration_part_4.2.ipynb (sense errors)
 
 ---
 

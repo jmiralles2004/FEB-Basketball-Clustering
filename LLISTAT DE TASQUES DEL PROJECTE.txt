@@ -142,11 +142,12 @@ PART OPCIONAL: Enriquiment amb dades externes (+10%)
   * Enriquit K-Means: Silhouette 0.2937, Calinski 27.85, Inertia 2100.41
   * Redist: 94.9% dels jugadors van canviar de clúster (indica impacte significatiu de noves features)
   * Resultat: Model enriquit offering perspectiva nova pero menys cohesu (recommana re-evaluar k)
+- [FET] Verificar que el codi s'executa sense errors ✓ (Notebook 05_integration_part_4.2.ipynb completat)
 
 ENTREGA FINAL
-- [PENDENT] Tots els notebooks al repositori
-- [PENDENT] Verificar que el codi s'executa sense errors
-- [PENDENT] README.md complet i actualitzat
-- [PENDENT] Estructura clara de carpetes
-- [PENDENT] Commits amb missatges descriptius
-- [PENDENT] Compartir l'enllaç del repositori GitHub
+- [PENDENTE] Tots els notebooks al repositori
+- [PENDENTE] Verificar que el codi s'executa sense errors
+- [PENDENTE] README.md complet i actualitzat
+- [PENDENTE] Estructura clara de carpetes
+- [PENDENTE] Commits amb missatges descriptius
+- [PENDENTE] Compartir l'enllaç del repositori GitHub
