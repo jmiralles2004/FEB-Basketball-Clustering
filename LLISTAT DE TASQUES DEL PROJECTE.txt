@@ -112,8 +112,8 @@ PART 3: Visualització i conclusions (30%)
 - [FET] Millores futures: per temporada, per posició, validació temporal, integració dades externes
 
 3.4 Documentació final
-- [PENDENT] Fer commit i push del notebook de visualització
-- [PENDENT] Actualitzar README: descripció projecte, execució, resultats, captures
+- [FET] Fer commit i push del notebook de visualització - Commit 151f82b: Part 3 amb 8 visualitzacions + interpretacions
+- [FET] Actualitzar README: descripció completa projecte, execució, resultats, aplicacions, visualitzacions
 
 PART OPCIONAL: Enriquiment amb dades externes (+10%)
 
