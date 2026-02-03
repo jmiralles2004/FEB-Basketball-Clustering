@@ -145,9 +145,28 @@ PART OPCIONAL: Enriquiment amb dades externes (+10%)
 - [FET] Verificar que el codi s'executa sense errors ✓ (Notebook 05_integration_part_4.2.ipynb completat)
 
 ENTREGA FINAL
-- [PENDENTE] Tots els notebooks al repositori
-- [PENDENTE] Verificar que el codi s'executa sense errors
-- [PENDENTE] README.md complet i actualitzat
-- [PENDENTE] Estructura clara de carpetes
-- [PENDENTE] Commits amb missatges descriptius
-- [PENDENTE] Compartir l'enllaç del repositori GitHub
+- [FET] Tots els notebooks al repositori (6 notebooks: 01-05 + BONUS 06 heatmaps) ✅
+- [FET] Verificar que el codi s'executa sense errors (totes les cel·les sense errors) ✅
+- [FET] README.md complet i actualitzat (Parts 1-4.2 + estructura + mètriques) ✅
+- [FET] Estructura clara de carpetes (data/notebooks/visualizations/src/docs) ✅
+- [FET] Commits amb missatges descriptius (5 commits semàntics amb feat/chore) ✅
+- [FET] Compartir l'enllaç del repositori GitHub ✅
+  * Enllaç: https://github.com/jmiralles2004/FEB-Basketball-Clustering
+  * Branch: main (09a17da)
+  * Push exitós: 08/01/2026
+
+BONUS IMPLEMENTAT (Valoració Extra)
+- [FET] Heatmaps de zones de tir per clúster (notebook 06_bonus_heatmaps_zones.ipynb)
+  * heatmap_shots_coordinates.png - Heatmap coordenades (x, y)
+  * heatmap_shots_court_regions.png - Distribució per zones del camp
+  * heatmap_efectivitat_zones.png - Efectivitat per zona i clúster
+  * heatmap_2p_vs_3p.png - Comparativa 2P vs 3P
+  * DADES: Mostra 50.000 llançaments de FEB3_players_shots (~1.17M total)
+  * INSIGHTS: Zones preferides + efectivitat + estil de joc per clúster
+
+COMPLETITUD DEL PROJECTE: 110% ✅
+- Part 1 (ETL/EDA): 30% ✓
+- Part 2 (Machine Learning): 40% ✓
+- Part 3 (Visualització): 30% ✓
+- Part 4 (Enriquiment): +10% ✓
+- BONUS (Heatmaps): +valoració extra ✓

@@ -52,12 +52,27 @@ FEB-Basketball-Clustering/
 │   ├── 02_clustering_kmeans_dbscan.ipynb         # Part 2: K-Means + DBSCAN
 │   ├── 03_visualitzacions.ipynb                  # Part 3: Visualitzacions + Conclusions
 │   ├── 04_web_scraping_part_4.1.ipynb            # Part 4.1: Web Scraping biografies
-│   └── 05_integration_part_4.2.ipynb             # Part 4.2: Integració MongoDB + Features enriquides
+│   ├── 05_integration_part_4.2.ipynb             # Part 4.2: Integració MongoDB + Features enriquides
+│   └── 06_bonus_heatmaps_zones.ipynb             # BONUS: Heatmaps zones de tir (FEB3_players_shots)
 │
 ├── visualizations/                # Gràfics generats (PNG, 300 DPI)
 │   ├── distribution_plots.png                    # 13 histogrames de distribucions
 │   ├── boxplots_outliers.png                     # Detecció de outliers (IQR)
 │   ├── correlation_heatmap.png                   # Matriu 68×68 de correlacions
+│   ├── correlation_heatmap_key.png               # Matriu 13×13 features clau
+│   ├── pca_scatter.png                           # PCA 2D (67.2% variança)
+│   ├── tsne_visualization.png                    # t-SNE 2D (separació clara)
+│   ├── cluster_profiles_barplot.png              # Comparativa 13 variables per clúster
+│   ├── radar_charts_clusters.png                 # Perfils normalitzats 8 dimensions
+│   ├── elbow_silhouette_original.png             # Análisis k òptim (original)
+│   ├── elbow_silhouette_enriched.png             # Análisis k òptim (enriquit)
+│   ├── metrics_comparison_enriched.png           # Comparativa mètriques (original vs enriquit)
+│   ├── cluster_distribution_enriched.png         # Distribució clústers original vs enriquit
+│   ├── pca_comparison_enriched.png               # PCA original vs enriquit (2D)
+│   ├── heatmap_shots_coordinates.png             # BONUS: Heatmap coordenades (x, y)
+│   ├── heatmap_shots_court_regions.png           # BONUS: Distribució per zones del camp
+│   ├── heatmap_efectivitat_zones.png             # BONUS: Efectivitat per zona i clúster
+│   └── heatmap_2p_vs_3p.png                      # BONUS: Comparativa 2P vs 3P
 │   ├── correlation_heatmap_key.png               # Matriu 13×13 features clau
 │   ├── pca_scatter.png                           # PCA 2D (67.2% variança)
 │   ├── tsne_visualization.png                    # t-SNE 2D (separació clara)
@@ -329,6 +344,31 @@ Obrir i executar en ordre:
 - [DBSCAN - scikit-learn](https://scikit-learn.org/stable/modules/clustering.html#dbscan)
 - [Basketball Reference](https://www.basketball-reference.com/) - Referència d'estadístiques
 - [FEB - Federació Espanyola de Bàsquet](https://www.feb.es/)
+
+---
+
+## 🎯 BONUS: Heatmaps de Zones de Tir
+
+### Objectiu
+Visualitzar les zones preferides de tir per cada clúster utilitzant les dades de **FEB3_players_shots** (~1.170.000 llançaments).
+
+### Visualitzacions generades
+1. **heatmap_shots_coordinates.png**: Heatmap de coordenades (x, y) amb hexbin per densitat
+2. **heatmap_shots_court_regions.png**: Distribució de tirs per zones del camp (top 10 zones)
+3. **heatmap_efectivitat_zones.png**: Efectivitat (%) per zona i clúster
+4. **heatmap_2p_vs_3p.png**: Comparativa 2P vs 3P (volum + efectivitat)
+
+### Insights obtinguts
+- **Clúster 0 (Elite/Stars)**: Zones properes a cistella + tirs exteriors, efectivitat alta
+- **Clúster 1 (Role Players)**: Zones específiques amb especialització
+- **Clúster 2 (Regulars)**: Distribució equilibrada amb volum mitjà
+
+### Aplicacions
+- **Scouting**: Identificar patrons de tir característics de cada perfil
+- **Tàctica defensiva**: Defensar zones calentes segons el perfil del jugador
+- **Planificació**: Composar plantilla amb varietat de zones de tir
+
+📓 **Notebook**: [06_bonus_heatmaps_zones.ipynb](notebooks/06_bonus_heatmaps_zones.ipynb)
 
 ---
 
