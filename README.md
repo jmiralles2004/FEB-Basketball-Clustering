@@ -22,7 +22,7 @@ Aquest projecte aplica **K-Means clustering** per segmentar 98 jugadors de la FE
 ## 🎯 Objectius
 
 1. **ETL/EDA**: Extreure i processar dades de MongoDB Atlas amb ~109K partits FEB
-2. **Feature Engineering**: Crear estadístiques avançades (OER, possessions, eficiència per zona)
+2. **Feature Engineering**: Crear estadístiques avançades (OER, DER, possessions, eficiència per zona)
 3. **Clustering**: Aplicar K-Means (k=3) i DBSCAN per identificar perfils de jugadors
 4. **Visualització**: Generar 8+ visualitzacions (PCA, t-SNE, radar charts, heatmaps)
 5. **Interpretació**: Aplicacions pràctiques per scouting, tàctica i planificació de plantilla
